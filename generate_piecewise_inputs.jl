@@ -13,7 +13,7 @@ frequency_flap = 0.75 #hz
 rot_amp_deg = 10.0 # deg
 edge_amp_m = 0.25 # m
 flap_amp_m = 0.125 # m
-N_sample_out = 2
+N_sample_out = 60
 
 # Get to steady state
 N_steady_state = 10
@@ -29,13 +29,13 @@ flap_offset_array = collect(LinRange(0.0, 0.0, N_steady_state))
 time_sin = collect(LinRange(1e-6, sin_duration, N_sin_points))
 
 # Define sinusoidal rotation
-sin_rotation_deg = rot_amp_deg*sind.(2*pi*frequency_rot*time_sin)
+sin_rotation_deg = rot_amp_deg*sin.(2*pi*frequency_rot*time_sin)
 
 # Define sinusoidal edge motion
-sin_edge_m = edge_amp_m*sind.(2*pi*frequency_edge*time_sin)
+sin_edge_m = edge_amp_m*sin.(2*pi*frequency_edge*time_sin)
 
 # define sinusoidal flap motion
-sin_flap_m = flap_amp_m*sind.(2*pi*frequency_flap*time_sin)
+sin_flap_m = flap_amp_m*sin.(2*pi*frequency_flap*time_sin)
 
 
 time_array = [time_array; time_array[end].+time_sin]
@@ -52,17 +52,17 @@ theta_deg_out = FLOWMath.akima(time_array,theta_deg_array,time_out)
 edge_offset_out = FLOWMath.akima(time_array,edge_offset_array,time_out)
 flap_offset_out = FLOWMath.akima(time_array,flap_offset_array,time_out)
 
-# # Plot to verify
-# PyPlot.figure()
-# PyPlot.plot(time_array,theta_deg_array,"r",label="Theta (Deg)")
-# PyPlot.plot(time_array,edge_offset_array,"g",label="Edge offset (m)")
-# PyPlot.plot(time_array,flap_offset_array,"b",label="Flap offset (m)")
+# Plot to verify
+PyPlot.figure()
+PyPlot.plot(time_array,theta_deg_array,"r",label="Theta (Deg)")
+PyPlot.plot(time_array,edge_offset_array,"g",label="Edge offset (m)")
+PyPlot.plot(time_array,flap_offset_array,"b",label="Flap offset (m)")
 
-# PyPlot.plot(time_out,theta_deg_out,"r--",label="Theta (Deg)")
-# PyPlot.plot(time_out,edge_offset_out,"g--",label="Edge offset (m)")
-# PyPlot.plot(time_out,flap_offset_out,"b--",label="Flap offset (m)")
+PyPlot.plot(time_out,theta_deg_out,"r--",label="Theta (Deg)")
+PyPlot.plot(time_out,edge_offset_out,"g--",label="Edge offset (m)")
+PyPlot.plot(time_out,flap_offset_out,"b--",label="Flap offset (m)")
 
-# PyPlot.legend()
+PyPlot.legend()
 
 # Now Create the output definition
 
@@ -75,7 +75,7 @@ println("    mesh_motion:
 
 # Rotations
 for itime = 1:length(time_out)-1
-    println("      -type: rotation
+    println("      - type: rotation
         angle: $(theta_deg_out[itime])
         start_time: $(time_out[itime])
         end_time: $(time_out[itime+1])
@@ -85,7 +85,7 @@ end
 
 # Displacements
 for itime = 1:length(time_out)-1
-    println("      -type: translation
+    println("      - type: translation
         start_time: $(time_out[itime])
         end_time: $(time_out[itime+1])
         displacement: [$(flap_offset_out[itime]), $(edge_offset_out[itime]), 1.0]")
