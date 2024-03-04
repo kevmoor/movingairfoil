@@ -3,3 +3,4 @@
 *.out
 /mesh
 *log*
+*.e
