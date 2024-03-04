@@ -13,7 +13,7 @@ frequency_flap = 0.75 #hz
 rot_amp_deg = 10.0 # deg
 edge_amp_m = 0.25 # m
 flap_amp_m = 0.125 # m
-N_sample_out = 60
+N_sample_out = 2
 
 # Get to steady state
 N_steady_state = 10
