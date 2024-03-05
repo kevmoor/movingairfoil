@@ -17,7 +17,7 @@ Time_Integrators:
     - realm_1
     second_order_accuracy: true
     start_time: 0
-    termination_step_count: 1000
+    termination_step_count: 50000
     time_step: 0.0002667
     time_step_count: 0
     time_stepping_type: fixed
@@ -194,7 +194,7 @@ realms:
   mesh: mesh/ffaw3211_3d_aoa50_periodic_overset.exo
   name: realm_1
   output:
-    output_data_base_name: results/pitchingAF_field_test6.e
+    output_data_base_name: results/pitchingAF_field_test7.e
     output_frequency: 10
     output_node_set: false
     output_variables:
@@ -241,597 +241,497 @@ realms:
     - type: rotation
       angle: 0.0
       start_time: 0.0
-      end_time: 0.18084745762711865
+      end_time: 0.04285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 0.0
-      start_time: 0.18084745762711865
-      end_time: 0.3616949152542373
+      start_time: 0.04285714285714286
+      end_time: 0.08571428571428572
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 0.0
-      start_time: 0.3616949152542373
-      end_time: 0.542542372881356
+      start_time: 0.08571428571428572
+      end_time: 0.1285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 0.0
-      start_time: 0.542542372881356
-      end_time: 0.7233898305084746
+      angle: 1.342361237323788
+      start_time: 0.1285714285714286
+      end_time: 0.17142857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 2.437670099215661
-      start_time: 0.7233898305084746
-      end_time: 0.9042372881355931
+      angle: 3.302752757593081
+      start_time: 0.17142857142857143
+      end_time: 0.2142857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 8.958426012292167
-      start_time: 0.9042372881355931
-      end_time: 1.085084745762712
+      angle: 5.128830608622282
+      start_time: 0.2142857142857143
+      end_time: 0.2571428571428572
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 9.258722959058186
-      start_time: 1.085084745762712
-      end_time: 1.2659322033898306
+      angle: 6.746511011544035
+      start_time: 0.2571428571428572
+      end_time: 0.3
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 3.2698665833682887
-      start_time: 1.2659322033898306
-      end_time: 1.4467796610169492
+      angle: 8.09005108596408
+      start_time: 0.3
+      end_time: 0.34285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -4.906570985760679
-      start_time: 1.4467796610169492
-      end_time: 1.6276271186440678
+      angle: 9.10479958726588
+      start_time: 0.34285714285714286
+      end_time: 0.38571428571428573
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -9.823557606107915
-      start_time: 1.6276271186440678
-      end_time: 1.8084745762711862
+      angle: 9.749342845277928
+      start_time: 0.38571428571428573
+      end_time: 0.4285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -7.934117416768744
-      start_time: 1.8084745762711862
-      end_time: 1.989322033898305
+      angle: 9.9975077570015
+      start_time: 0.4285714285714286
+      end_time: 0.4714285714285715
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -0.6688404933276227
-      start_time: 1.989322033898305
-      end_time: 2.170169491525424
+      angle: 9.839296390875754
+      start_time: 0.4714285714285715
+      end_time: 0.5142857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 7.051571096932795
-      start_time: 2.170169491525424
-      end_time: 2.3510169491525423
+      angle: 9.281183575497717
+      start_time: 0.5142857142857143
+      end_time: 0.5571428571428572
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 9.99744024284953
-      start_time: 2.3510169491525423
-      end_time: 2.531864406779661
+      angle: 8.345851503481322
+      start_time: 0.5571428571428572
+      end_time: 0.6
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 6.039136485070033
-      start_time: 2.531864406779661
-      end_time: 2.7127118644067796
+      angle: 7.071272102393305
+      start_time: 0.6
+      end_time: 0.6428571428571429
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -1.964980819811788
-      start_time: 2.7127118644067796
-      end_time: 2.8935593220338984
+      angle: 5.509173995778348
+      start_time: 0.6428571428571429
+      end_time: 0.6857142857142857
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -8.694126438771471
-      start_time: 2.8935593220338984
-      end_time: 3.074406779661017
+      angle: 3.7229554113594743
+      start_time: 0.6857142857142857
+      end_time: 0.7285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -9.465242310501475
-      start_time: 3.074406779661017
-      end_time: 3.2552542372881357
+      angle: 1.785348059928931
+      start_time: 0.7285714285714286
+      end_time: 0.7714285714285715
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -3.6983826993135143
-      start_time: 3.2552542372881357
-      end_time: 3.436101694915254
+      angle: -0.22406071339899225
+      start_time: 0.7714285714285715
+      end_time: 0.8142857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 4.490698217142858
-      start_time: 3.436101694915254
-      end_time: 3.6169491525423725
+      angle: -2.225400184857303
+      start_time: 0.8142857142857143
+      end_time: 0.8571428571428572
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 9.705504004283698
-      start_time: 3.6169491525423725
-      end_time: 3.7977966101694913
+      angle: -4.13562649068827
+      start_time: 0.8571428571428572
+      end_time: 0.9
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 8.248110615243558
-      start_time: 3.7977966101694913
-      end_time: 3.97864406779661
+      angle: -5.877757796803886
+      start_time: 0.9
+      end_time: 0.942857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 1.1200137301045963
-      start_time: 3.97864406779661
-      end_time: 4.159491525423729
+      angle: -7.381031882776951
+      start_time: 0.942857142857143
+      end_time: 0.9857142857142858
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -6.720036376249473
-      start_time: 4.159491525423729
-      end_time: 4.340338983050848
+      angle: -8.584361155733063
+      start_time: 0.9857142857142858
+      end_time: 1.0285714285714287
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -10.015488295064525
-      start_time: 4.340338983050848
-      end_time: 4.521186440677966
+      angle: -9.43880336960998
+      start_time: 1.0285714285714287
+      end_time: 1.0714285714285714
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -6.424181211710291
-      start_time: 4.521186440677966
-      end_time: 4.702033898305085
+      angle: -9.909525911895257
+      start_time: 1.0714285714285714
+      end_time: 1.1142857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 1.51056731889822
-      start_time: 4.702033898305085
-      end_time: 4.882881355932203
+      angle: -9.97734391971387
+      start_time: 1.1142857142857143
+      end_time: 1.157142857142857
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 8.425882485873501
-      start_time: 4.882881355932203
-      end_time: 5.063728813559322
+      angle: -9.639594632063403
+      start_time: 1.157142857142857
+      end_time: 1.2
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 9.618688311105974
-      start_time: 5.063728813559322
-      end_time: 5.244576271186441
+      angle: -8.910060878322051
+      start_time: 1.2
+      end_time: 1.2428571428571429
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 4.146534280435879
-      start_time: 5.244576271186441
-      end_time: 5.425423728813559
+      angle: -7.81840198782572
+      start_time: 1.2428571428571429
+      end_time: 1.2857142857142858
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -4.070561846093454
-      start_time: 5.425423728813559
-      end_time: 5.6062711864406785
+      angle: -6.408953111962681
+      start_time: 1.2857142857142858
+      end_time: 1.3285714285714287
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -9.54682395748529
-      start_time: 5.6062711864406785
-      end_time: 5.787118644067797
+      angle: -4.7389339717912655
+      start_time: 1.3285714285714287
+      end_time: 1.3714285714285714
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -8.545521986885273
-      start_time: 5.787118644067797
-      end_time: 5.967966101694914
+      angle: -2.876138790269507
+      start_time: 1.3714285714285714
+      end_time: 1.4142857142857144
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -1.6200087274921153
-      start_time: 5.967966101694914
-      end_time: 6.148813559322034
+      angle: -0.8962427421216117
+      start_time: 1.4142857142857144
+      end_time: 1.4571428571428573
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 6.368015643898047
-      start_time: 6.148813559322034
-      end_time: 6.329661016949152
+      angle: 1.1199166285903255
+      start_time: 1.4571428571428573
+      end_time: 1.5
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 9.99522357374139
-      start_time: 6.329661016949152
-      end_time: 6.510508474576271
+      angle: 3.090407765744841
+      start_time: 1.5
+      end_time: 1.542857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 6.860805801660592
-      start_time: 6.510508474576271
-      end_time: 6.69135593220339
+      angle: 4.935193596075714
+      start_time: 1.542857142857143
+      end_time: 1.5857142857142856
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -0.9946155135282195
-      start_time: 6.69135593220339
-      end_time: 6.872203389830508
+      angle: 6.579361862721755
+      start_time: 1.5857142857142856
+      end_time: 1.6285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -8.178387244098927
-      start_time: 6.872203389830508
-      end_time: 7.0530508474576274
+      angle: 7.9561376364998315
+      start_time: 1.6285714285714286
+      end_time: 1.6714285714285715
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -9.72610265422524
-      start_time: 7.0530508474576274
-      end_time: 7.233898305084745
+      angle: 9.009581261472785
+      start_time: 1.6714285714285715
+      end_time: 1.7142857142857144
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -4.6615873489766075
-      start_time: 7.233898305084745
-      end_time: 7.414745762711865
+      angle: 9.6968503525042
+      start_time: 1.7142857142857144
+      end_time: 1.7571428571428573
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 3.5420129473799764
-      start_time: 7.414745762711865
-      end_time: 7.595593220338983
+      angle: 9.989934449866572
+      start_time: 1.7571428571428573
+      end_time: 1.8
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 9.40718670955927
-      start_time: 7.595593220338983
-      end_time: 7.776440677966101
+      angle: 9.876851355117722
+      start_time: 1.8
+      end_time: 1.842857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 8.771284045557177
-      start_time: 7.776440677966101
-      end_time: 7.95728813559322
+      angle: 9.362275802547506
+      start_time: 1.842857142857143
+      end_time: 1.885714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 2.150282242807814
-      start_time: 7.95728813559322
-      end_time: 8.138135593220339
+      angle: 8.467188236569378
+      start_time: 1.885714285714286
+      end_time: 1.9285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -5.915525167865285
-      start_time: 8.138135593220339
-      end_time: 8.318983050847457
+      angle: 7.227986118696339
+      start_time: 1.9285714285714286
+      end_time: 1.9714285714285715
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -9.976192088087622
-      start_time: 8.318983050847457
-      end_time: 8.499830508474576
+      angle: 5.695009943329942
+      start_time: 1.9714285714285715
+      end_time: 2.0142857142857142
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: -7.204736654057072
-      start_time: 8.499830508474576
-      end_time: 8.680677966101696
+      angle: 3.9305083419783684
+      start_time: 2.0142857142857142
+      end_time: 2.0571428571428574
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
-      angle: 0.46955625565964415
-      start_time: 8.680677966101696
-      end_time: 8.861525423728814
-      axis: [0.0, 0.0, 1.0]
-      origin: [0.0, 0.0, 0.0]
-    - type: rotation
-      angle: 7.868457891505205
-      start_time: 8.861525423728814
-      end_time: 9.042372881355933
-      axis: [0.0, 0.0, 1.0]
-      origin: [0.0, 0.0, 0.0]
-    - type: rotation
-      angle: 9.840416781160497
-      start_time: 9.042372881355933
-      end_time: 9.223220338983051
-      axis: [0.0, 0.0, 1.0]
-      origin: [0.0, 0.0, 0.0]
-    - type: rotation
-      angle: 5.099193453471369
-      start_time: 9.223220338983051
-      end_time: 9.40406779661017
-      axis: [0.0, 0.0, 1.0]
-      origin: [0.0, 0.0, 0.0]
-    - type: rotation
-      angle: -3.0630865095676523
-      start_time: 9.40406779661017
-      end_time: 9.584915254237288
-      axis: [0.0, 0.0, 1.0]
-      origin: [0.0, 0.0, 0.0]
-    - type: rotation
-      angle: -9.233296024034443
-      start_time: 9.584915254237288
-      end_time: 9.765762711864406
-      axis: [0.0, 0.0, 1.0]
-      origin: [0.0, 0.0, 0.0]
-    - type: rotation
-      angle: -8.992429910809815
-      start_time: 9.765762711864406
-      end_time: 9.946610169491525
-      axis: [0.0, 0.0, 1.0]
-      origin: [0.0, 0.0, 0.0]
-    - type: rotation
-      angle: -2.6234589438248475
-      start_time: 9.946610169491525
-      end_time: 10.127457627118645
-      axis: [0.0, 0.0, 1.0]
-      origin: [0.0, 0.0, 0.0]
-    - type: rotation
-      angle: 5.479433475952891
-      start_time: 10.127457627118645
-      end_time: 10.308305084745763
-      axis: [0.0, 0.0, 1.0]
-      origin: [0.0, 0.0, 0.0]
-    - type: rotation
-      angle: 9.933592266614198
-      start_time: 10.308305084745763
-      end_time: 10.489152542372882
-      axis: [0.0, 0.0, 1.0]
-      origin: [0.0, 0.0, 0.0]
-    - type: rotation
-      angle: 7.49650154197763
-      start_time: 10.489152542372882
-      end_time: 10.67
+      angle: 2.006123847337883
+      start_time: 2.0571428571428574
+      end_time: 2.1
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: translation
       start_time: 0.0
-      end_time: 0.18084745762711865
+      end_time: 0.04285714285714286
       displacement: [0.0, 0.0, 1.0]
     - type: translation
-      start_time: 0.18084745762711865
-      end_time: 0.3616949152542373
+      start_time: 0.04285714285714286
+      end_time: 0.08571428571428572
       displacement: [0.0, 0.0, 1.0]
     - type: translation
-      start_time: 0.3616949152542373
-      end_time: 0.542542372881356
+      start_time: 0.08571428571428572
+      end_time: 0.1285714285714286
       displacement: [0.0, 0.0, 1.0]
     - type: translation
-      start_time: 0.542542372881356
-      end_time: 0.7233898305084746
-      displacement: [0.0, 0.0, 1.0]
+      start_time: 0.1285714285714286
+      end_time: 0.17142857142857143
+      displacement: [0.016779515466547355, 0.03355903093309471, 1.0]
     - type: translation
-      start_time: 0.7233898305084746
-      end_time: 0.9042372881355931
-      displacement: [0.030470876240195767, 0.060941752480391534, 1.0]
+      start_time: 0.17142857142857143
+      end_time: 0.2142857142857143
+      displacement: [0.04128440946991351, 0.08256881893982702, 1.0]
     - type: translation
-      start_time: 0.9042372881355931
-      end_time: 1.085084745762712
-      displacement: [0.11198032515365207, 0.22396065030730414, 1.0]
+      start_time: 0.2142857142857143
+      end_time: 0.2571428571428572
+      displacement: [0.06411038260777853, 0.12822076521555706, 1.0]
     - type: translation
-      start_time: 1.085084745762712
-      end_time: 1.2659322033898306
-      displacement: [0.11573403698822733, 0.23146807397645466, 1.0]
+      start_time: 0.2571428571428572
+      end_time: 0.3
+      displacement: [0.08433138764430044, 0.16866277528860088, 1.0]
     - type: translation
-      start_time: 1.2659322033898306
-      end_time: 1.4467796610169492
-      displacement: [0.0408733322921036, 0.0817466645842072, 1.0]
+      start_time: 0.3
+      end_time: 0.34285714285714286
+      displacement: [0.101125638574551, 0.202251277149102, 1.0]
     - type: translation
-      start_time: 1.4467796610169492
-      end_time: 1.6276271186440678
-      displacement: [-0.0613321373220085, -0.122664274644017, 1.0]
+      start_time: 0.34285714285714286
+      end_time: 0.38571428571428573
+      displacement: [0.1138099948408235, 0.227619989681647, 1.0]
     - type: translation
-      start_time: 1.6276271186440678
-      end_time: 1.8084745762711862
-      displacement: [-0.12279447007634897, -0.24558894015269794, 1.0]
+      start_time: 0.38571428571428573
+      end_time: 0.4285714285714286
+      displacement: [0.12186678556597406, 0.24373357113194813, 1.0]
     - type: translation
-      start_time: 1.8084745762711862
-      end_time: 1.989322033898305
-      displacement: [-0.09917646770960929, -0.19835293541921858, 1.0]
+      start_time: 0.4285714285714286
+      end_time: 0.4714285714285715
+      displacement: [0.12496884696251875, 0.2499376939250375, 1.0]
     - type: translation
-      start_time: 1.989322033898305
-      end_time: 2.170169491525424
-      displacement: [-0.008360506166595285, -0.01672101233319057, 1.0]
+      start_time: 0.4714285714285715
+      end_time: 0.5142857142857143
+      displacement: [0.12299120488594693, 0.24598240977189387, 1.0]
     - type: translation
-      start_time: 2.170169491525424
-      end_time: 2.3510169491525423
-      displacement: [0.08814463871165995, 0.1762892774233199, 1.0]
+      start_time: 0.5142857142857143
+      end_time: 0.5571428571428572
+      displacement: [0.11601479469372149, 0.23202958938744297, 1.0]
     - type: translation
-      start_time: 2.3510169491525423
-      end_time: 2.531864406779661
-      displacement: [0.12496800303561913, 0.24993600607123825, 1.0]
+      start_time: 0.5571428571428572
+      end_time: 0.6
+      displacement: [0.10432314379351655, 0.2086462875870331, 1.0]
     - type: translation
-      start_time: 2.531864406779661
-      end_time: 2.7127118644067796
-      displacement: [0.07548920606337542, 0.15097841212675084, 1.0]
+      start_time: 0.6
+      end_time: 0.6428571428571429
+      displacement: [0.0883909012799163, 0.1767818025598326, 1.0]
     - type: translation
-      start_time: 2.7127118644067796
-      end_time: 2.8935593220338984
-      displacement: [-0.024562260247647343, -0.049124520495294685, 1.0]
+      start_time: 0.6428571428571429
+      end_time: 0.6857142857142857
+      displacement: [0.06886467494722935, 0.1377293498944587, 1.0]
     - type: translation
-      start_time: 2.8935593220338984
-      end_time: 3.074406779661017
-      displacement: [-0.10867658048464338, -0.21735316096928675, 1.0]
+      start_time: 0.6857142857142857
+      end_time: 0.7285714285714286
+      displacement: [0.04653694264199343, 0.09307388528398686, 1.0]
     - type: translation
-      start_time: 3.074406779661017
-      end_time: 3.2552542372881357
-      displacement: [-0.11831552888126846, -0.23663105776253693, 1.0]
+      start_time: 0.7285714285714286
+      end_time: 0.7714285714285715
+      displacement: [0.022316850749111636, 0.04463370149822327, 1.0]
     - type: translation
-      start_time: 3.2552542372881357
-      end_time: 3.436101694915254
-      displacement: [-0.046229783741418916, -0.09245956748283783, 1.0]
+      start_time: 0.7714285714285715
+      end_time: 0.8142857142857143
+      displacement: [-0.0028007589174874033, -0.005601517834974807, 1.0]
     - type: translation
-      start_time: 3.436101694915254
-      end_time: 3.6169491525423725
-      displacement: [0.056133727714285736, 0.11226745542857147, 1.0]
+      start_time: 0.8142857142857143
+      end_time: 0.8571428571428572
+      displacement: [-0.02781750231071628, -0.05563500462143256, 1.0]
     - type: translation
-      start_time: 3.6169491525423725
-      end_time: 3.7977966101694913
-      displacement: [0.12131880005354621, 0.24263760010709243, 1.0]
+      start_time: 0.8571428571428572
+      end_time: 0.9
+      displacement: [-0.051695331133603376, -0.10339066226720675, 1.0]
     - type: translation
-      start_time: 3.7977966101694913
-      end_time: 3.97864406779661
-      displacement: [0.10310138269054449, 0.20620276538108898, 1.0]
+      start_time: 0.9
+      end_time: 0.942857142857143
+      displacement: [-0.07347197246004857, -0.14694394492009713, 1.0]
     - type: translation
-      start_time: 3.97864406779661
-      end_time: 4.159491525423729
-      displacement: [0.014000171626307461, 0.028000343252614922, 1.0]
+      start_time: 0.942857142857143
+      end_time: 0.9857142857142858
+      displacement: [-0.09226289853471188, -0.18452579706942376, 1.0]
     - type: translation
-      start_time: 4.159491525423729
-      end_time: 4.340338983050848
-      displacement: [-0.08400045470311841, -0.16800090940623683, 1.0]
+      start_time: 0.9857142857142858
+      end_time: 1.0285714285714287
+      displacement: [-0.10730451444666327, -0.21460902889332653, 1.0]
     - type: translation
-      start_time: 4.340338983050848
-      end_time: 4.521186440677966
-      displacement: [-0.12519360368830654, -0.2503872073766131, 1.0]
+      start_time: 1.0285714285714287
+      end_time: 1.0714285714285714
+      displacement: [-0.11798504212012477, -0.23597008424024954, 1.0]
     - type: translation
-      start_time: 4.521186440677966
-      end_time: 4.702033898305085
-      displacement: [-0.08030226514637864, -0.16060453029275729, 1.0]
+      start_time: 1.0714285714285714
+      end_time: 1.1142857142857143
+      displacement: [-0.12386907389869072, -0.24773814779738143, 1.0]
     - type: translation
-      start_time: 4.702033898305085
-      end_time: 4.882881355932203
-      displacement: [0.018882091486227767, 0.03776418297245553, 1.0]
+      start_time: 1.1142857142857143
+      end_time: 1.157142857142857
+      displacement: [-0.12471679899642339, -0.24943359799284678, 1.0]
     - type: translation
-      start_time: 4.882881355932203
-      end_time: 5.063728813559322
-      displacement: [0.10532353107341876, 0.2106470621468375, 1.0]
+      start_time: 1.157142857142857
+      end_time: 1.2
+      displacement: [-0.12049493290079256, -0.24098986580158513, 1.0]
     - type: translation
-      start_time: 5.063728813559322
-      end_time: 5.244576271186441
-      displacement: [0.12023360388882466, 0.24046720777764932, 1.0]
+      start_time: 1.2
+      end_time: 1.2428571428571429
+      displacement: [-0.11137576097902564, -0.22275152195805129, 1.0]
     - type: translation
-      start_time: 5.244576271186441
-      end_time: 5.425423728813559
-      displacement: [0.05183167850544849, 0.10366335701089698, 1.0]
+      start_time: 1.2428571428571429
+      end_time: 1.2857142857142858
+      displacement: [-0.09773002484782149, -0.19546004969564298, 1.0]
     - type: translation
-      start_time: 5.425423728813559
-      end_time: 5.6062711864406785
-      displacement: [-0.050882023076168174, -0.10176404615233635, 1.0]
+      start_time: 1.2857142857142858
+      end_time: 1.3285714285714287
+      displacement: [-0.08011191389953352, -0.16022382779906705, 1.0]
     - type: translation
-      start_time: 5.6062711864406785
-      end_time: 5.787118644067797
-      displacement: [-0.1193352994685661, -0.2386705989371322, 1.0]
+      start_time: 1.3285714285714287
+      end_time: 1.3714285714285714
+      displacement: [-0.05923667464739081, -0.11847334929478162, 1.0]
     - type: translation
-      start_time: 5.787118644067797
-      end_time: 5.967966101694914
-      displacement: [-0.1068190248360659, -0.2136380496721318, 1.0]
+      start_time: 1.3714285714285714
+      end_time: 1.4142857142857144
+      displacement: [-0.03595173487836884, -0.07190346975673768, 1.0]
     - type: translation
-      start_time: 5.967966101694914
-      end_time: 6.148813559322034
-      displacement: [-0.02025010909365144, -0.04050021818730288, 1.0]
+      start_time: 1.4142857142857144
+      end_time: 1.4571428571428573
+      displacement: [-0.011203034276520146, -0.022406068553040292, 1.0]
     - type: translation
-      start_time: 6.148813559322034
-      end_time: 6.329661016949152
-      displacement: [0.07960019554872559, 0.15920039109745118, 1.0]
+      start_time: 1.4571428571428573
+      end_time: 1.5
+      displacement: [0.013998957857379068, 0.027997915714758136, 1.0]
     - type: translation
-      start_time: 6.329661016949152
-      end_time: 6.510508474576271
-      displacement: [0.12494029467176737, 0.24988058934353474, 1.0]
+      start_time: 1.5
+      end_time: 1.542857142857143
+      displacement: [0.03863009707181051, 0.07726019414362102, 1.0]
     - type: translation
-      start_time: 6.510508474576271
-      end_time: 6.69135593220339
-      displacement: [0.0857600725207574, 0.1715201450415148, 1.0]
+      start_time: 1.542857142857143
+      end_time: 1.5857142857142856
+      displacement: [0.06168991995094642, 0.12337983990189284, 1.0]
     - type: translation
-      start_time: 6.69135593220339
-      end_time: 6.872203389830508
-      displacement: [-0.012432693919102736, -0.024865387838205473, 1.0]
+      start_time: 1.5857142857142856
+      end_time: 1.6285714285714286
+      displacement: [0.08224202328402193, 0.16448404656804386, 1.0]
     - type: translation
-      start_time: 6.872203389830508
-      end_time: 7.0530508474576274
-      displacement: [-0.10222984055123659, -0.20445968110247317, 1.0]
+      start_time: 1.6285714285714286
+      end_time: 1.6714285714285715
+      displacement: [0.0994517204562479, 0.1989034409124958, 1.0]
     - type: translation
-      start_time: 7.0530508474576274
-      end_time: 7.233898305084745
-      displacement: [-0.12157628317781549, -0.24315256635563098, 1.0]
+      start_time: 1.6714285714285715
+      end_time: 1.7142857142857144
+      displacement: [0.11261976576840982, 0.22523953153681964, 1.0]
     - type: translation
-      start_time: 7.233898305084745
-      end_time: 7.414745762711865
-      displacement: [-0.05826984186220759, -0.11653968372441519, 1.0]
+      start_time: 1.7142857142857144
+      end_time: 1.7571428571428573
+      displacement: [0.12121062940630249, 0.24242125881260498, 1.0]
     - type: translation
-      start_time: 7.414745762711865
-      end_time: 7.595593220338983
-      displacement: [0.04427516184224972, 0.08855032368449944, 1.0]
+      start_time: 1.7571428571428573
+      end_time: 1.8
+      displacement: [0.12487418062333218, 0.24974836124666436, 1.0]
     - type: translation
-      start_time: 7.595593220338983
-      end_time: 7.776440677966101
-      displacement: [0.11758983386949087, 0.23517966773898175, 1.0]
+      start_time: 1.8
+      end_time: 1.842857142857143
+      displacement: [0.12346064193897152, 0.24692128387794304, 1.0]
     - type: translation
-      start_time: 7.776440677966101
-      end_time: 7.95728813559322
-      displacement: [0.10964105056946472, 0.21928210113892943, 1.0]
+      start_time: 1.842857142857143
+      end_time: 1.885714285714286
+      displacement: [0.11702844753184383, 0.23405689506368765, 1.0]
     - type: translation
-      start_time: 7.95728813559322
-      end_time: 8.138135593220339
-      displacement: [0.026878528035097677, 0.053757056070195354, 1.0]
+      start_time: 1.885714285714286
+      end_time: 1.9285714285714286
+      displacement: [0.1058398529571172, 0.2116797059142344, 1.0]
     - type: translation
-      start_time: 8.138135593220339
-      end_time: 8.318983050847457
-      displacement: [-0.07394406459831608, -0.14788812919663216, 1.0]
+      start_time: 1.9285714285714286
+      end_time: 1.9714285714285715
+      displacement: [0.09034982648370422, 0.18069965296740845, 1.0]
     - type: translation
-      start_time: 8.318983050847457
-      end_time: 8.499830508474576
-      displacement: [-0.12470240110109529, -0.24940480220219058, 1.0]
+      start_time: 1.9714285714285715
+      end_time: 2.0142857142857142
+      displacement: [0.07118762429162427, 0.14237524858324854, 1.0]
     - type: translation
-      start_time: 8.499830508474576
-      end_time: 8.680677966101696
-      displacement: [-0.09005920817571342, -0.18011841635142684, 1.0]
+      start_time: 2.0142857142857142
+      end_time: 2.0571428571428574
+      displacement: [0.0491313542747296, 0.0982627085494592, 1.0]
     - type: translation
-      start_time: 8.680677966101696
-      end_time: 8.861525423728814
-      displacement: [0.005869453195745548, 0.011738906391491097, 1.0]
-    - type: translation
-      start_time: 8.861525423728814
-      end_time: 9.042372881355933
-      displacement: [0.09835572364381506, 0.19671144728763013, 1.0]
-    - type: translation
-      start_time: 9.042372881355933
-      end_time: 9.223220338983051
-      displacement: [0.1230052097645062, 0.2460104195290124, 1.0]
-    - type: translation
-      start_time: 9.223220338983051
-      end_time: 9.40406779661017
-      displacement: [0.06373991816839211, 0.12747983633678422, 1.0]
-    - type: translation
-      start_time: 9.40406779661017
-      end_time: 9.584915254237288
-      displacement: [-0.03828858136959566, -0.07657716273919132, 1.0]
-    - type: translation
-      start_time: 9.584915254237288
-      end_time: 9.765762711864406
-      displacement: [-0.11541620030043054, -0.23083240060086108, 1.0]
-    - type: translation
-      start_time: 9.765762711864406
-      end_time: 9.946610169491525
-      displacement: [-0.11240537388512271, -0.22481074777024543, 1.0]
-    - type: translation
-      start_time: 9.946610169491525
-      end_time: 10.127457627118645
-      displacement: [-0.03279323679781058, -0.06558647359562116, 1.0]
-    - type: translation
-      start_time: 10.127457627118645
-      end_time: 10.308305084745763
-      displacement: [0.06849291844941113, 0.13698583689882227, 1.0]
-    - type: translation
-      start_time: 10.308305084745763
-      end_time: 10.489152542372882
-      displacement: [0.12416990333267748, 0.24833980666535496, 1.0]
-    - type: translation
-      start_time: 10.489152542372882
-      end_time: 10.67
-      displacement: [0.09370626927472038, 0.18741253854944076, 1.0]
+      start_time: 2.0571428571428574
+      end_time: 2.1
+      displacement: [0.025076548091723536, 0.05015309618344707, 1.0]
 
   post_processing:
   - frequency: 1
-    output_file_name: results/pitchingAF_forces_test6.dat
+    output_file_name: results/pitchingAF_forces_test7.dat
     parameters:
     - 0
     - 0
@@ -841,7 +741,7 @@ realms:
     type: surface
  
   restart:
-    restart_data_base_name: restart/pitchingAF_test6.rst
+    restart_data_base_name: restart/pitchingAF_test7.rst
     restart_frequency: 100
 
   solution_options:

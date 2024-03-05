@@ -5,3 +5,5 @@
 *log*
 *.e
 *.DS_Store
+core
+restart/

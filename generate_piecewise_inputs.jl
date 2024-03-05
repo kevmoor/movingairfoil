@@ -3,9 +3,12 @@ PyPlot.pygui(true)
 import FLOWMath
 
 # Inputs
-steady_state_time = 0.67 # sec, at 15m/s for a 1m chord, 5 chords is .67 seconds
+chord_length = 1.0 #m
+windspeed = 15.0 #m/s
+NchordFlow = 1.5
+steady_state_time = 1/windspeed * NchordFlow/chord_length# sec, at 15m/s for a 1m chord, 1 chords is .67 seconds
 # Potentially repeating/array of numbers
-sin_duration = 10.0 # sec, for 15m/s and 1m chord, then 1/15 = 0.067 seconds per chord, and if (below) we are doing 20 chords in a full cycle, if we did 5 cycles, then that's 100 chords of flow, or 6.7 seconds, so just say 10 seconds to match up with the sim steps?
+sin_duration = 2.0 # sec, for 15m/s and 1m chord, then 1/15 = 0.067 seconds per chord, and if (below) we are doing 20 chords in a full cycle, if we did 5 cycles, then that's 100 chords of flow, or 6.7 seconds, so just say 10 seconds to match up with the sim steps?
 N_sin_points = 100
 frequency_rot = 0.75 #hz -> 1 hz means we go from 0 to amplitude to negative amplitude to zero in one second.  for 15m/s and 1m chord, if we want 5 chords of flow when it hits the high side (1/4 stroke), then 1/15 = 0.067 seconds per chord, multiply by 5 = 0.33 seconds, so want full cycle in 4x that time, so 1 cycle in 1.33 seconds, 1/1.33 = 0.75 cycles/second
 frequency_edge = 0.75 #hz
@@ -13,7 +16,7 @@ frequency_flap = 0.75 #hz
 rot_amp_deg = 10.0 # deg
 edge_amp_m = 0.25 # m
 flap_amp_m = 0.125 # m
-N_sample_out = 60
+N_sample_out = 50
 
 # Get to steady state
 N_steady_state = 10
