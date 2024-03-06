@@ -80,7 +80,7 @@ println("    mesh_motion:
 for itime = 1:length(time_out)-1
     println("      - type: rotation
         angle: $(theta_deg_out[itime])
-        start_time: $(time_out[itime])
+        start_time: $(time_out[itime]+1e-6)
         end_time: $(time_out[itime+1])
         axis: [0.0, 0.0, 1.0]
         origin: [0.0, 0.0, 0.0]")
@@ -89,7 +89,7 @@ end
 # Displacements
 for itime = 1:length(time_out)-1
     println("      - type: translation
-        start_time: $(time_out[itime])
+        start_time: $(time_out[itime]+1e-6)
         end_time: $(time_out[itime+1])
-        displacement: [$(flap_offset_out[itime]), $(edge_offset_out[itime]), 1.0]")
+        displacement: [$(flap_offset_out[itime]), $(edge_offset_out[itime]), 0.0]")
 end

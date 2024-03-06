@@ -5,7 +5,7 @@ Simulations:
 
 # Hypre memory and other configurations
 hypre_config:
-  umpire_device_pool_mbs: 4096
+  umpire_device_pool_mbs: 8192
   use_vendor_spgemm: 1
   use_vendor_spmv: 0
   use_vendor_sptrans: 0
@@ -194,7 +194,7 @@ realms:
   mesh: mesh/ffaw3211_3d_aoa50_periodic_overset.exo
   name: realm_1
   output:
-    output_data_base_name: results/pitchingAF_field_test7.e
+    output_data_base_name: results/pitchingAF_field_test9.e
     output_frequency: 10
     output_node_set: false
     output_variables:
@@ -240,498 +240,498 @@ realms:
     motion:
     - type: rotation
       angle: 0.0
-      start_time: 0.0
+      start_time: 1.0e-6
       end_time: 0.04285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 0.0
-      start_time: 0.04285714285714286
+      start_time: 0.04285814285714286
       end_time: 0.08571428571428572
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 0.0
-      start_time: 0.08571428571428572
+      start_time: 0.08571528571428572
       end_time: 0.1285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 1.342361237323788
-      start_time: 0.1285714285714286
+      start_time: 0.1285724285714286
       end_time: 0.17142857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 3.302752757593081
-      start_time: 0.17142857142857143
+      start_time: 0.17142957142857143
       end_time: 0.2142857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 5.128830608622282
-      start_time: 0.2142857142857143
+      start_time: 0.2142867142857143
       end_time: 0.2571428571428572
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 6.746511011544035
-      start_time: 0.2571428571428572
+      start_time: 0.25714385714285715
       end_time: 0.3
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 8.09005108596408
-      start_time: 0.3
+      start_time: 0.30000099999999996
       end_time: 0.34285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 9.10479958726588
-      start_time: 0.34285714285714286
+      start_time: 0.34285814285714283
       end_time: 0.38571428571428573
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 9.749342845277928
-      start_time: 0.38571428571428573
+      start_time: 0.3857152857142857
       end_time: 0.4285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 9.9975077570015
-      start_time: 0.4285714285714286
+      start_time: 0.4285724285714286
       end_time: 0.4714285714285715
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 9.839296390875754
-      start_time: 0.4714285714285715
+      start_time: 0.47142957142857145
       end_time: 0.5142857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 9.281183575497717
-      start_time: 0.5142857142857143
+      start_time: 0.5142867142857144
       end_time: 0.5571428571428572
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 8.345851503481322
-      start_time: 0.5571428571428572
+      start_time: 0.5571438571428572
       end_time: 0.6
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 7.071272102393305
-      start_time: 0.6
+      start_time: 0.600001
       end_time: 0.6428571428571429
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 5.509173995778348
-      start_time: 0.6428571428571429
+      start_time: 0.6428581428571429
       end_time: 0.6857142857142857
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 3.7229554113594743
-      start_time: 0.6857142857142857
+      start_time: 0.6857152857142857
       end_time: 0.7285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 1.785348059928931
-      start_time: 0.7285714285714286
+      start_time: 0.7285724285714287
       end_time: 0.7714285714285715
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -0.22406071339899225
-      start_time: 0.7714285714285715
+      start_time: 0.7714295714285715
       end_time: 0.8142857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -2.225400184857303
-      start_time: 0.8142857142857143
+      start_time: 0.8142867142857143
       end_time: 0.8571428571428572
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -4.13562649068827
-      start_time: 0.8571428571428572
+      start_time: 0.8571438571428572
       end_time: 0.9
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -5.877757796803886
-      start_time: 0.9
+      start_time: 0.900001
       end_time: 0.942857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -7.381031882776951
-      start_time: 0.942857142857143
+      start_time: 0.942858142857143
       end_time: 0.9857142857142858
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -8.584361155733063
-      start_time: 0.9857142857142858
+      start_time: 0.9857152857142858
       end_time: 1.0285714285714287
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -9.43880336960998
-      start_time: 1.0285714285714287
+      start_time: 1.0285724285714286
       end_time: 1.0714285714285714
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -9.909525911895257
-      start_time: 1.0714285714285714
+      start_time: 1.0714295714285713
       end_time: 1.1142857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -9.97734391971387
-      start_time: 1.1142857142857143
+      start_time: 1.1142867142857142
       end_time: 1.157142857142857
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -9.639594632063403
-      start_time: 1.157142857142857
+      start_time: 1.157143857142857
       end_time: 1.2
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -8.910060878322051
-      start_time: 1.2
+      start_time: 1.2000009999999999
       end_time: 1.2428571428571429
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -7.81840198782572
-      start_time: 1.2428571428571429
+      start_time: 1.2428581428571428
       end_time: 1.2857142857142858
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -6.408953111962681
-      start_time: 1.2857142857142858
+      start_time: 1.2857152857142857
       end_time: 1.3285714285714287
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -4.7389339717912655
-      start_time: 1.3285714285714287
+      start_time: 1.3285724285714287
       end_time: 1.3714285714285714
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -2.876138790269507
-      start_time: 1.3714285714285714
+      start_time: 1.3714295714285714
       end_time: 1.4142857142857144
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: -0.8962427421216117
-      start_time: 1.4142857142857144
+      start_time: 1.4142867142857143
       end_time: 1.4571428571428573
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 1.1199166285903255
-      start_time: 1.4571428571428573
+      start_time: 1.4571438571428572
       end_time: 1.5
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 3.090407765744841
-      start_time: 1.5
+      start_time: 1.500001
       end_time: 1.542857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 4.935193596075714
-      start_time: 1.542857142857143
+      start_time: 1.5428581428571428
       end_time: 1.5857142857142856
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 6.579361862721755
-      start_time: 1.5857142857142856
+      start_time: 1.5857152857142855
       end_time: 1.6285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 7.9561376364998315
-      start_time: 1.6285714285714286
+      start_time: 1.6285724285714285
       end_time: 1.6714285714285715
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 9.009581261472785
-      start_time: 1.6714285714285715
+      start_time: 1.6714295714285714
       end_time: 1.7142857142857144
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 9.6968503525042
-      start_time: 1.7142857142857144
+      start_time: 1.7142867142857143
       end_time: 1.7571428571428573
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 9.989934449866572
-      start_time: 1.7571428571428573
+      start_time: 1.7571438571428573
       end_time: 1.8
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 9.876851355117722
-      start_time: 1.8
+      start_time: 1.800001
       end_time: 1.842857142857143
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 9.362275802547506
-      start_time: 1.842857142857143
+      start_time: 1.842858142857143
       end_time: 1.885714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 8.467188236569378
-      start_time: 1.885714285714286
+      start_time: 1.8857152857142858
       end_time: 1.9285714285714286
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 7.227986118696339
-      start_time: 1.9285714285714286
+      start_time: 1.9285724285714285
       end_time: 1.9714285714285715
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 5.695009943329942
-      start_time: 1.9714285714285715
+      start_time: 1.9714295714285714
       end_time: 2.0142857142857142
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 3.9305083419783684
-      start_time: 2.0142857142857142
+      start_time: 2.0142867142857144
       end_time: 2.0571428571428574
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: rotation
       angle: 2.006123847337883
-      start_time: 2.0571428571428574
+      start_time: 2.0571438571428575
       end_time: 2.1
       axis: [0.0, 0.0, 1.0]
       origin: [0.0, 0.0, 0.0]
     - type: translation
-      start_time: 0.0
+      start_time: 1.0e-6
       end_time: 0.04285714285714286
-      displacement: [0.0, 0.0, 1.0]
+      displacement: [0.0, 0.0, 0.0]
     - type: translation
-      start_time: 0.04285714285714286
+      start_time: 0.04285814285714286
       end_time: 0.08571428571428572
-      displacement: [0.0, 0.0, 1.0]
+      displacement: [0.0, 0.0, 0.0]
     - type: translation
-      start_time: 0.08571428571428572
+      start_time: 0.08571528571428572
       end_time: 0.1285714285714286
-      displacement: [0.0, 0.0, 1.0]
+      displacement: [0.0, 0.0, 0.0]
     - type: translation
-      start_time: 0.1285714285714286
+      start_time: 0.1285724285714286
       end_time: 0.17142857142857143
-      displacement: [0.016779515466547355, 0.03355903093309471, 1.0]
+      displacement: [0.016779515466547355, 0.03355903093309471, 0.0]
     - type: translation
-      start_time: 0.17142857142857143
+      start_time: 0.17142957142857143
       end_time: 0.2142857142857143
-      displacement: [0.04128440946991351, 0.08256881893982702, 1.0]
+      displacement: [0.04128440946991351, 0.08256881893982702, 0.0]
     - type: translation
-      start_time: 0.2142857142857143
+      start_time: 0.2142867142857143
       end_time: 0.2571428571428572
-      displacement: [0.06411038260777853, 0.12822076521555706, 1.0]
+      displacement: [0.06411038260777853, 0.12822076521555706, 0.0]
     - type: translation
-      start_time: 0.2571428571428572
+      start_time: 0.25714385714285715
       end_time: 0.3
-      displacement: [0.08433138764430044, 0.16866277528860088, 1.0]
+      displacement: [0.08433138764430044, 0.16866277528860088, 0.0]
     - type: translation
-      start_time: 0.3
+      start_time: 0.30000099999999996
       end_time: 0.34285714285714286
-      displacement: [0.101125638574551, 0.202251277149102, 1.0]
+      displacement: [0.101125638574551, 0.202251277149102, 0.0]
     - type: translation
-      start_time: 0.34285714285714286
+      start_time: 0.34285814285714283
       end_time: 0.38571428571428573
-      displacement: [0.1138099948408235, 0.227619989681647, 1.0]
+      displacement: [0.1138099948408235, 0.227619989681647, 0.0]
     - type: translation
-      start_time: 0.38571428571428573
+      start_time: 0.3857152857142857
       end_time: 0.4285714285714286
-      displacement: [0.12186678556597406, 0.24373357113194813, 1.0]
+      displacement: [0.12186678556597406, 0.24373357113194813, 0.0]
     - type: translation
-      start_time: 0.4285714285714286
+      start_time: 0.4285724285714286
       end_time: 0.4714285714285715
-      displacement: [0.12496884696251875, 0.2499376939250375, 1.0]
+      displacement: [0.12496884696251875, 0.2499376939250375, 0.0]
     - type: translation
-      start_time: 0.4714285714285715
+      start_time: 0.47142957142857145
       end_time: 0.5142857142857143
-      displacement: [0.12299120488594693, 0.24598240977189387, 1.0]
+      displacement: [0.12299120488594693, 0.24598240977189387, 0.0]
     - type: translation
-      start_time: 0.5142857142857143
+      start_time: 0.5142867142857144
       end_time: 0.5571428571428572
-      displacement: [0.11601479469372149, 0.23202958938744297, 1.0]
+      displacement: [0.11601479469372149, 0.23202958938744297, 0.0]
     - type: translation
-      start_time: 0.5571428571428572
+      start_time: 0.5571438571428572
       end_time: 0.6
-      displacement: [0.10432314379351655, 0.2086462875870331, 1.0]
+      displacement: [0.10432314379351655, 0.2086462875870331, 0.0]
     - type: translation
-      start_time: 0.6
+      start_time: 0.600001
       end_time: 0.6428571428571429
-      displacement: [0.0883909012799163, 0.1767818025598326, 1.0]
+      displacement: [0.0883909012799163, 0.1767818025598326, 0.0]
     - type: translation
-      start_time: 0.6428571428571429
+      start_time: 0.6428581428571429
       end_time: 0.6857142857142857
-      displacement: [0.06886467494722935, 0.1377293498944587, 1.0]
+      displacement: [0.06886467494722935, 0.1377293498944587, 0.0]
     - type: translation
-      start_time: 0.6857142857142857
+      start_time: 0.6857152857142857
       end_time: 0.7285714285714286
-      displacement: [0.04653694264199343, 0.09307388528398686, 1.0]
+      displacement: [0.04653694264199343, 0.09307388528398686, 0.0]
     - type: translation
-      start_time: 0.7285714285714286
+      start_time: 0.7285724285714287
       end_time: 0.7714285714285715
-      displacement: [0.022316850749111636, 0.04463370149822327, 1.0]
+      displacement: [0.022316850749111636, 0.04463370149822327, 0.0]
     - type: translation
-      start_time: 0.7714285714285715
+      start_time: 0.7714295714285715
       end_time: 0.8142857142857143
-      displacement: [-0.0028007589174874033, -0.005601517834974807, 1.0]
+      displacement: [-0.0028007589174874033, -0.005601517834974807, 0.0]
     - type: translation
-      start_time: 0.8142857142857143
+      start_time: 0.8142867142857143
       end_time: 0.8571428571428572
-      displacement: [-0.02781750231071628, -0.05563500462143256, 1.0]
+      displacement: [-0.02781750231071628, -0.05563500462143256, 0.0]
     - type: translation
-      start_time: 0.8571428571428572
+      start_time: 0.8571438571428572
       end_time: 0.9
-      displacement: [-0.051695331133603376, -0.10339066226720675, 1.0]
+      displacement: [-0.051695331133603376, -0.10339066226720675, 0.0]
     - type: translation
-      start_time: 0.9
+      start_time: 0.900001
       end_time: 0.942857142857143
-      displacement: [-0.07347197246004857, -0.14694394492009713, 1.0]
+      displacement: [-0.07347197246004857, -0.14694394492009713, 0.0]
     - type: translation
-      start_time: 0.942857142857143
+      start_time: 0.942858142857143
       end_time: 0.9857142857142858
-      displacement: [-0.09226289853471188, -0.18452579706942376, 1.0]
+      displacement: [-0.09226289853471188, -0.18452579706942376, 0.0]
     - type: translation
-      start_time: 0.9857142857142858
+      start_time: 0.9857152857142858
       end_time: 1.0285714285714287
-      displacement: [-0.10730451444666327, -0.21460902889332653, 1.0]
+      displacement: [-0.10730451444666327, -0.21460902889332653, 0.0]
     - type: translation
-      start_time: 1.0285714285714287
+      start_time: 1.0285724285714286
       end_time: 1.0714285714285714
-      displacement: [-0.11798504212012477, -0.23597008424024954, 1.0]
+      displacement: [-0.11798504212012477, -0.23597008424024954, 0.0]
     - type: translation
-      start_time: 1.0714285714285714
+      start_time: 1.0714295714285713
       end_time: 1.1142857142857143
-      displacement: [-0.12386907389869072, -0.24773814779738143, 1.0]
+      displacement: [-0.12386907389869072, -0.24773814779738143, 0.0]
     - type: translation
-      start_time: 1.1142857142857143
+      start_time: 1.1142867142857142
       end_time: 1.157142857142857
-      displacement: [-0.12471679899642339, -0.24943359799284678, 1.0]
+      displacement: [-0.12471679899642339, -0.24943359799284678, 0.0]
     - type: translation
-      start_time: 1.157142857142857
+      start_time: 1.157143857142857
       end_time: 1.2
-      displacement: [-0.12049493290079256, -0.24098986580158513, 1.0]
+      displacement: [-0.12049493290079256, -0.24098986580158513, 0.0]
     - type: translation
-      start_time: 1.2
+      start_time: 1.2000009999999999
       end_time: 1.2428571428571429
-      displacement: [-0.11137576097902564, -0.22275152195805129, 1.0]
+      displacement: [-0.11137576097902564, -0.22275152195805129, 0.0]
     - type: translation
-      start_time: 1.2428571428571429
+      start_time: 1.2428581428571428
       end_time: 1.2857142857142858
-      displacement: [-0.09773002484782149, -0.19546004969564298, 1.0]
+      displacement: [-0.09773002484782149, -0.19546004969564298, 0.0]
     - type: translation
-      start_time: 1.2857142857142858
+      start_time: 1.2857152857142857
       end_time: 1.3285714285714287
-      displacement: [-0.08011191389953352, -0.16022382779906705, 1.0]
+      displacement: [-0.08011191389953352, -0.16022382779906705, 0.0]
     - type: translation
-      start_time: 1.3285714285714287
+      start_time: 1.3285724285714287
       end_time: 1.3714285714285714
-      displacement: [-0.05923667464739081, -0.11847334929478162, 1.0]
+      displacement: [-0.05923667464739081, -0.11847334929478162, 0.0]
     - type: translation
-      start_time: 1.3714285714285714
+      start_time: 1.3714295714285714
       end_time: 1.4142857142857144
-      displacement: [-0.03595173487836884, -0.07190346975673768, 1.0]
+      displacement: [-0.03595173487836884, -0.07190346975673768, 0.0]
     - type: translation
-      start_time: 1.4142857142857144
+      start_time: 1.4142867142857143
       end_time: 1.4571428571428573
-      displacement: [-0.011203034276520146, -0.022406068553040292, 1.0]
+      displacement: [-0.011203034276520146, -0.022406068553040292, 0.0]
     - type: translation
-      start_time: 1.4571428571428573
+      start_time: 1.4571438571428572
       end_time: 1.5
-      displacement: [0.013998957857379068, 0.027997915714758136, 1.0]
+      displacement: [0.013998957857379068, 0.027997915714758136, 0.0]
     - type: translation
-      start_time: 1.5
+      start_time: 1.500001
       end_time: 1.542857142857143
-      displacement: [0.03863009707181051, 0.07726019414362102, 1.0]
+      displacement: [0.03863009707181051, 0.07726019414362102, 0.0]
     - type: translation
-      start_time: 1.542857142857143
+      start_time: 1.5428581428571428
       end_time: 1.5857142857142856
-      displacement: [0.06168991995094642, 0.12337983990189284, 1.0]
+      displacement: [0.06168991995094642, 0.12337983990189284, 0.0]
     - type: translation
-      start_time: 1.5857142857142856
+      start_time: 1.5857152857142855
       end_time: 1.6285714285714286
-      displacement: [0.08224202328402193, 0.16448404656804386, 1.0]
+      displacement: [0.08224202328402193, 0.16448404656804386, 0.0]
     - type: translation
-      start_time: 1.6285714285714286
+      start_time: 1.6285724285714285
       end_time: 1.6714285714285715
-      displacement: [0.0994517204562479, 0.1989034409124958, 1.0]
+      displacement: [0.0994517204562479, 0.1989034409124958, 0.0]
     - type: translation
-      start_time: 1.6714285714285715
+      start_time: 1.6714295714285714
       end_time: 1.7142857142857144
-      displacement: [0.11261976576840982, 0.22523953153681964, 1.0]
+      displacement: [0.11261976576840982, 0.22523953153681964, 0.0]
     - type: translation
-      start_time: 1.7142857142857144
+      start_time: 1.7142867142857143
       end_time: 1.7571428571428573
-      displacement: [0.12121062940630249, 0.24242125881260498, 1.0]
+      displacement: [0.12121062940630249, 0.24242125881260498, 0.0]
     - type: translation
-      start_time: 1.7571428571428573
+      start_time: 1.7571438571428573
       end_time: 1.8
-      displacement: [0.12487418062333218, 0.24974836124666436, 1.0]
+      displacement: [0.12487418062333218, 0.24974836124666436, 0.0]
     - type: translation
-      start_time: 1.8
+      start_time: 1.800001
       end_time: 1.842857142857143
-      displacement: [0.12346064193897152, 0.24692128387794304, 1.0]
+      displacement: [0.12346064193897152, 0.24692128387794304, 0.0]
     - type: translation
-      start_time: 1.842857142857143
+      start_time: 1.842858142857143
       end_time: 1.885714285714286
-      displacement: [0.11702844753184383, 0.23405689506368765, 1.0]
+      displacement: [0.11702844753184383, 0.23405689506368765, 0.0]
     - type: translation
-      start_time: 1.885714285714286
+      start_time: 1.8857152857142858
       end_time: 1.9285714285714286
-      displacement: [0.1058398529571172, 0.2116797059142344, 1.0]
+      displacement: [0.1058398529571172, 0.2116797059142344, 0.0]
     - type: translation
-      start_time: 1.9285714285714286
+      start_time: 1.9285724285714285
       end_time: 1.9714285714285715
-      displacement: [0.09034982648370422, 0.18069965296740845, 1.0]
+      displacement: [0.09034982648370422, 0.18069965296740845, 0.0]
     - type: translation
-      start_time: 1.9714285714285715
+      start_time: 1.9714295714285714
       end_time: 2.0142857142857142
-      displacement: [0.07118762429162427, 0.14237524858324854, 1.0]
+      displacement: [0.07118762429162427, 0.14237524858324854, 0.0]
     - type: translation
-      start_time: 2.0142857142857142
+      start_time: 2.0142867142857144
       end_time: 2.0571428571428574
-      displacement: [0.0491313542747296, 0.0982627085494592, 1.0]
+      displacement: [0.0491313542747296, 0.0982627085494592, 0.0]
     - type: translation
-      start_time: 2.0571428571428574
+      start_time: 2.0571438571428575
       end_time: 2.1
-      displacement: [0.025076548091723536, 0.05015309618344707, 1.0]
+      displacement: [0.025076548091723536, 0.05015309618344707, 0.0]
 
   post_processing:
   - frequency: 1
-    output_file_name: results/pitchingAF_forces_test7.dat
+    output_file_name: results/pitchingAF_forces_test9.dat
     parameters:
     - 0
     - 0
@@ -741,7 +741,7 @@ realms:
     type: surface
  
   restart:
-    restart_data_base_name: restart/pitchingAF_test7.rst
+    restart_data_base_name: restart/pitchingAF_test9.rst
     restart_frequency: 100
 
   solution_options:

@@ -66,8 +66,8 @@ print("    mesh_motion:\n    - name: arbitrary_motion_airfoil\n      mesh_parts:
 
 # Rotations
 for i in range(len(time_out) - 1):
-    print(f"      - type: rotation\n        angle: {theta_deg_out[i]}\n        start_time: {time_out[i]}\n        end_time: {time_out[i+1]}\n        axis: [0.0, 0.0, 1.0]\n        origin: [0.0, 0.0, 0.0]")
+    print(f"      - type: rotation\n        angle: {theta_deg_out[i]}\n        start_time: {time_out[i]+1e-6}\n        end_time: {time_out[i+1]}\n        axis: [0.0, 0.0, 1.0]\n        origin: [0.0, 0.0, 0.0]")
 
 # Displacements
 for i in range(len(time_out) - 1):
-    print(f"      - type: translation\n        start_time: {time_out[i]}\n        end_time: {time_out[i+1]}\n        displacement: [{flap_offset_out[i]}, {edge_offset_out[i]}, 1.0]")
+    print(f"      - type: translation\n        start_time: {time_out[i]+1e-6}\n        end_time: {time_out[i+1]}\n        displacement: [{flap_offset_out[i]}, {edge_offset_out[i]}, 0.0]")

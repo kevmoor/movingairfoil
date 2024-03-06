@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH -A CFD162
-#SBATCH -J test_pitching_af7
+#SBATCH -J test_pitching_test9
 #SBATCH -t 2:00:00
 #SBATCH -p batch
 #SBATCH -N 32
@@ -38,7 +38,7 @@ spack-start
 spack env activate -d ${SPACK_MANAGER}/environments/naluGPUOverset
 spack load nalu-wind
 
-naluX -i airfoil_osc_overset_periodic.yaml -o test_pitching_af7.out
+naluX -i airfoil_osc_overset_periodic.yaml -o test_pitching_test9.out
 
 # grids=../ffa_w3_360/static/
 # echo ${grids}
