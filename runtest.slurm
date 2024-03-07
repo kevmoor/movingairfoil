@@ -38,6 +38,11 @@ spack-start
 spack env activate -d ${SPACK_MANAGER}/environments/naluGPUOverset
 spack load nalu-wind
 
+export mytimestamp=$(grep "Current Time:" test_pitching_test9.out | tail -n 1 | sed -n 's/.*Current Time: \(.*\)/\1/p')
+
+sed -i "s/restart_time: [0-9.]\+/restart_time: ${mytimestamp}/" airfoil_osc_overset_periodic.yaml
+
+
 naluX -i airfoil_osc_overset_periodic.yaml -o test_pitching_test9.out
 
 # grids=../ffa_w3_360/static/
