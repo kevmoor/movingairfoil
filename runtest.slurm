@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH -A CFD162
-#SBATCH -J test_pitching_test9
+#SBATCH -J test10
 #SBATCH -t 2:00:00
 #SBATCH -p batch
 #SBATCH -N 32
@@ -38,12 +38,12 @@ spack-start
 spack env activate -d ${SPACK_MANAGER}/environments/naluGPUOverset
 spack load nalu-wind
 
-export mytimestamp=$(grep "Current Time:" test_pitching_test9.out | tail -n 1 | sed -n 's/.*Current Time: \(.*\)/\1/p')
+#export mytimestamp=$(grep "Current Time:" test_pitching_test9.out | tail -n 1 | sed -n 's/.*Current Time: \(.*\)/\1/p')
 
-sed -i "s/restart_time: [0-9.]\+/restart_time: ${mytimestamp}/" airfoil_osc_overset_periodic.yaml
+#sed -i "s/restart_time: [0-9.]\+/restart_time: ${mytimestamp}/" airfoil_osc_overset_periodic.yaml
 
 
-naluX -i airfoil_osc_overset_periodic.yaml -o test_pitching_test9.out
+srun -u -N32 -n256 --ntasks-per-gpu=1 --gpu-bind=closest naluX -i airfoil_osc_overset_periodic.yaml -o test_pitching_test10.out
 
 # grids=../ffa_w3_360/static/
 # echo ${grids}
