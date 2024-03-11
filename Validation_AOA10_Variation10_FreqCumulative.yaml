@@ -1,0 +1,597 @@
+Simulations:
+- name: sim1
+  optimizer: opt1
+  time_integrator: ti_1
+
+# Hypre memory and other configurations
+hypre_config:
+  umpire_device_pool_mbs: 4096
+  use_vendor_spgemm: 1
+  use_vendor_spmv: 0
+  use_vendor_sptrans: 0
+
+Time_Integrators:
+- StandardTimeIntegrator:
+    name: ti_1
+    realms:
+    - realm_1
+    second_order_accuracy: true
+    start_time: 0
+    termination_step_count: 50000
+    time_step: 0.0002667
+    time_step_count: 0
+    time_stepping_type: fixed
+
+linear_solvers:
+  # solver for the momentum
+  - name: solve_mom
+    type: hypre
+    method: hypre_gmres
+    preconditioner: boomerAMG
+    tolerance: 1e-5
+    max_iterations: 1000
+    kspace: 1000
+    sync_alg: 1
+    output_level: 0
+    write_matrix_files: no
+    #write_preassembly_matrix_files: yes
+    recompute_preconditioner_frequency: 1
+    reuse_linear_system: yes
+    simple_hypre_matrix_assemble: yes
+    dump_hypre_matrix_stats: no
+    segregated_solver: yes
+    hypre_cfg_file: hypre_file.yaml
+    hypre_cfg_node: hypre_simple_precon
+
+  # solver for the scalars TKE, SDR
+  - name: solve_scalar
+    type: hypre
+    method: hypre_gmres
+    preconditioner: boomerAMG
+    tolerance: 1e-5
+    max_iterations: 1000
+    kspace: 1000
+    sync_alg: 1
+    output_level: 0
+    write_matrix_files: no
+    #write_preassembly_matrix_files: yes
+    recompute_preconditioner_frequency: 1
+    reuse_linear_system: yes
+    simple_hypre_matrix_assemble: yes
+    dump_hypre_matrix_stats: no
+    hypre_cfg_file: hypre_file.yaml
+    hypre_cfg_node: hypre_simple_precon
+
+  # solver for the pressure
+  - name: solve_elliptic
+    type: hypre
+    method: hypre_gmres
+    preconditioner: boomerAMG
+    tolerance: 1e-5
+    max_iterations: 1000
+    kspace: 1000
+    sync_alg: 1
+    output_level: 0
+    write_matrix_files: no
+    #write_preassembly_matrix_files: yes
+    recompute_preconditioner_frequency: 1
+    reuse_linear_system: yes
+    simple_hypre_matrix_assemble: yes
+    dump_hypre_matrix_stats: no
+    hypre_cfg_file: hypre_file.yaml
+    hypre_cfg_node: hypre_elliptic
+
+realms:
+- mesh: mesh/ffaw3211_3d_aoa50_periodic_overset.exo
+  automatic_decomposition_type: rcb
+  rebalance_mesh: yes
+  stk_rebalance_method: parmetis
+  check_jacobians: true
+    
+  boundary_conditions:
+  - target_name: airfoil
+    wall_boundary_condition: bc_wing
+    wall_user_data:
+      turbulent_ke: 0.0
+      use_wall_function: false
+      velocity:
+      - 0
+      - 0
+      - 0
+  - inflow_boundary_condition: bc_inflow
+    target_name: inflow
+    inflow_user_data:
+      specific_dissipation_rate: 2266.4
+      turbulent_ke: 0.095118
+      velocity:
+      - 102.89999999999999
+      - 0.0
+      - 0.0
+    
+  - open_boundary_condition: bc_open
+    target_name: outflow
+    open_user_data:
+      pressure: 0.0
+      specific_dissipation_rate: 2266.4
+      turbulent_ke: 0.095118
+      velocity:
+      - 0.0
+      - 0.0
+      - 0.0
+
+  - periodic_boundary_condition: bc_front_back
+    target_name: [front-fluid, back-fluid]
+    check_for_missing_bcs: true
+    periodic_user_data:
+      search_tolerance: 0.0001
+
+  - periodic_boundary_condition: bc_front_back_af
+    target_name: [front-airfoil, back-airfoil]
+    check_for_missing_bcs: true
+    periodic_user_data:
+      search_tolerance: 0.0001
+
+  - overset_boundary_condition: bc_overset
+    overset_connectivity_type: tioga
+    overset_user_data:
+      tioga_options:
+        symmetry_direction: 2
+        set_resolutions: no
+      mesh_group:
+      - overset_name: airfoil
+        mesh_parts:
+        - airfoil-HEX
+        wall_parts: [airfoil]
+        ovset_parts: [outerBCairfoil]
+      - overset_name: static
+        mesh_parts:
+        - fluid-HEX
+
+  equation_systems:
+    max_iterations: 4
+    name: theEqSys
+    decoupled_overset_solve: true
+
+    solver_system_specification:
+      velocity: solve_mom
+      turbulent_ke: solve_scalar
+      specific_dissipation_rate: solve_scalar
+      pressure: solve_elliptic
+      ndtw: solve_elliptic
+
+    systems:
+    - WallDistance:
+        convergence_tolerance: 1.0e-08
+        max_iterations: 1
+        name: myNDTW
+    - LowMachEOM:
+        convergence_tolerance: 1.0e-08
+        max_iterations: 1
+        name: myLowMach
+    - ShearStressTransport:
+        convergence_tolerance: 1.0e-08
+        max_iterations: 1
+        name: mySST
+
+  initial_conditions:
+    - constant: ic_1
+      target_name: [fluid-HEX, airfoil-HEX]
+      value:
+        pressure: 0
+        velocity: [15.0, 0.0, 0.0]
+        turbulent_ke: 0.095118
+        specific_dissipation_rate: 2266.4
+        minimum_distance_to_wall: 8.0
+
+  material_properties:
+    specifications:
+    - name: density
+      type: constant
+      value: 1.2
+    - name: viscosity
+      type: constant
+      value: 9.0e-06
+    target_name: [fluid-HEX, airfoil-HEX]
+  name: realm_1
+  output:
+    output_data_base_name: results/pitchingAF_field_val1cumulative.e
+    output_frequency: 100
+    output_node_set: false
+    output_variables:
+    - velocity
+    - density
+    - pressure
+    - pressure_force
+    - viscous_force
+    - tau_wall_vector
+    - tau_wall
+    - turbulent_ke
+    - specific_dissipation_rate
+    - minimum_distance_to_wall
+    - sst_f_one_blending
+    - turbulent_viscosity
+    - element_courant
+    - q_criterion
+    - vorticity
+    - assembled_area_force_moment
+
+
+  mesh_transformation:
+  - mesh_parts:
+    - airfoil-HEX
+    motion:
+    - angle: 40.0
+      axis:
+      - 0.0
+      - 0.0
+      - 1.0
+      centroid:
+      - 0.0
+      - 0.0
+      - 0.0
+      type: rotation
+    name: angle_of_attack
+
+    mesh_motion:
+    - name: arbitrary_motion_airfoil
+      mesh_parts: 
+      - airfoil-HEX
+      frame: non_inertial
+      motion:
+      - type: rotation
+        angle: 0.0
+        start_time: 1.0e-6
+        end_time: 0.03004207736284939
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 0.0
+        start_time: 0.03004307736284939
+        end_time: 0.06008415472569878
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 3.25148212516997
+        start_time: 0.06008515472569878
+        end_time: 0.09012623208854818
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 4.465038715991804
+        start_time: 0.09012723208854818
+        end_time: 0.12016830945139756
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 2.18772137264055
+        start_time: 0.12016930945139756
+        end_time: 0.15021038681424698
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -0.7317965725176325
+        start_time: 0.15021138681424698
+        end_time: 0.18025246417709637
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -3.436856758627643
+        start_time: 0.18025346417709637
+        end_time: 0.21029454153994576
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -5.138058084318327
+        start_time: 0.21029554153994576
+        end_time: 0.24033661890279512
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -5.305670091276058
+        start_time: 0.24033761890279512
+        end_time: 0.27037869626564454
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -3.9201237869035515
+        start_time: 0.2703796962656445
+        end_time: 0.30042077362849395
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -1.3708491656939579
+        start_time: 0.3004217736284939
+        end_time: 0.3304628509913433
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 1.5787866996983304
+        start_time: 0.3304638509913433
+        end_time: 0.36050492835419273
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 4.060913524035333
+        start_time: 0.3605059283541927
+        end_time: 0.39054700571704215
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 5.3454021972242485
+        start_time: 0.3905480057170421
+        end_time: 0.4205890830798915
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 5.056742178799308
+        start_time: 0.4205900830798915
+        end_time: 0.45063116044274093
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 3.27447928101223
+        start_time: 0.4506321604427409
+        end_time: 0.48067323780559024
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 0.5230974138914686
+        start_time: 0.4806742378055902
+        end_time: 0.5107153151684397
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -2.385025514867892
+        start_time: 0.5107163151684397
+        end_time: 0.5407573925312891
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -4.588714629259851
+        start_time: 0.5407583925312891
+        end_time: 0.5707994698941384
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -5.4180230113799634
+        start_time: 0.5708004698941385
+        end_time: 0.6008415472569879
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -4.682941662446067
+        start_time: 0.6008425472569879
+        end_time: 0.6308836246198373
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -2.5423601648754115
+        start_time: 0.6308846246198373
+        end_time: 0.6609257019826866
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 0.3402088890082542
+        start_time: 0.6609267019826867
+        end_time: 0.6909677793455361
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 3.1252871111567364
+        start_time: 0.6909687793455361
+        end_time: 0.7210098567083855
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 4.991246101868711
+        start_time: 0.7210108567083855
+        end_time: 0.7510519340712348
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 5.382069071491449
+        start_time: 0.7510529340712349
+        end_time: 0.7810940114340843
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 4.178972126148811
+        start_time: 0.7810950114340843
+        end_time: 0.8111360887969336
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 1.7468583408137324
+        start_time: 0.8111370887969336
+        end_time: 0.841178166159783
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -1.1978821009938354
+        start_time: 0.841179166159783
+        end_time: 0.8712202435226324
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -3.788984483591064
+        start_time: 0.8712212435226324
+        end_time: 0.9012623208854819
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -5.272898576908668
+        start_time: 0.9012633208854819
+        end_time: 0.9313043982483312
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -5.179823843918615
+        start_time: 0.9313053982483313
+        end_time: 0.9613464756111805
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -3.580610446467512
+        start_time: 0.9613474756111805
+        end_time: 0.99138855297403
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -0.9108394235349841
+        start_time: 0.99138955297403
+        end_time: 1.0214306303368794
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 2.0254521541829584
+        start_time: 1.0214316303368793
+        end_time: 1.0514727076997288
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 4.363374774672592
+        start_time: 1.0514737076997287
+        end_time: 1.0815147850625781
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 5.395029612793654
+        start_time: 1.081515785062578
+        end_time: 1.1115568624254275
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 4.873258478752095
+        start_time: 1.1115578624254274
+        end_time: 1.1415989397882769
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 2.88387870291284
+        start_time: 1.1415999397882768
+        end_time: 1.1716410171511265
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 0.05252564283413186
+        start_time: 1.1716420171511264
+        end_time: 1.2016830945139758
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -2.7988325686127826
+        start_time: 1.2016840945139757
+        end_time: 1.2317251718768252
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -4.823554448882566
+        start_time: 1.231726171876825
+        end_time: 1.2617672492396745
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -5.419757909628425
+        start_time: 1.2617682492396745
+        end_time: 1.291809326602524
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -4.4174089543239
+        start_time: 1.2918103266025238
+        end_time: 1.3218514039653733
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: -2.114495277023269
+        start_time: 1.3218524039653732
+        end_time: 1.3518934813282228
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 0.8107449999449159
+        start_time: 1.3518944813282228
+        end_time: 1.3819355586910722
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 3.4979492103683585
+        start_time: 1.3819365586910721
+        end_time: 1.4119776360539213
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 5.164442304748196
+        start_time: 1.4119786360539213
+        end_time: 1.442019713416771
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+      - type: rotation
+        angle: 5.286201546773038
+        start_time: 1.4420207134167708
+        end_time: 1.4720617907796203
+        axis: [0.0, 0.0, 1.0]
+        origin: [0.0, 0.0, 0.0]
+
+  post_processing:
+  - frequency: 1
+    output_file_name: results/pitchingAF_forces_val1cumulative.dat
+    parameters:
+    - 0
+    - 0
+    physics: surface_force_and_moment
+    target_name:
+    - airfoil
+    type: surface
+ 
+  restart:
+    restart_data_base_name: restart/pitchingAF_val1cumulative.rst
+    restart_frequency: 100
+      #restart_time: 0.0912114 
+
+  solution_options:
+    name: myOptions
+    options:
+    - hybrid_factor:
+        specific_dissipation_rate: 1.0
+        turbulent_ke: 1.0
+        velocity: 1.0
+    - alpha_upw:
+        specific_dissipation_rate: 1.0
+        turbulent_ke: 1.0
+        velocity: 1.0
+    - upw_factor:
+        specific_dissipation_rate: 0.0
+        turbulent_ke: 0.0
+        velocity: 1.0
+    - limiter:
+        pressure: true
+        velocity: true
+        turbulent_ke: true
+        specific_dissipation_rate: true
+    - noc_correction:
+        pressure: true
+    - projected_nodal_gradient:
+        ndtw: element
+        pressure: element
+        specific_dissipation_rate: element
+        turbulent_ke: element
+        velocity: element
+    - relaxation_factor:
+        pressure: 0.3
+        specific_dissipation_rate: 0.7
+        turbulent_ke: 0.7
+        velocity: 0.7
+    - turbulence_model_constants:
+        SDRWallFactor: 0.625
+    projected_timescale_type: momentum_diag_inv
+    turbulence_model: sst
+  turbulence_averaging:
+    specifications:
+    - compute_q_criterion: true
+      compute_vorticity: true
+      name: one
+      target_name: [fluid-HEX, airfoil-HEX]
+    time_filter_interval: 100000.0
+  use_edges: true
+

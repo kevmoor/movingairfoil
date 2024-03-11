@@ -78,7 +78,39 @@ PyPlot.plot(time_out,flap_offset_out,"b--",label="Flap offset (m)")
 
 PyPlot.legend()
 
-# Now Create the output definition
+
+# PyPlot.figure()
+# for itime = 1:length(time_out)-1
+
+#     myx0 = [-chord_length/2,chord_length/2]
+#     myy0 = [0,0]
+
+#     myx = myx0*cosd(theta_deg_out[itime])-myy0*sind(theta_deg_out[itime])
+#     myy = myx0*sind(theta_deg_out[itime])+myy0*cosd(theta_deg_out[itime])
+
+#     PyPlot.clf()
+#     PyPlot.title("Time: $(time_out[itime])")
+#     PyPlot.plot(myx.+edge_offset_out[itime],myy.+flap_offset_out[itime])
+#     PyPlot.xlim((-1.5,1.5))
+#     PyPlot.ylim((-1.5,1.5))
+#     PyPlot.savefig("./figs/motionframe$(lpad(itime,3,"0")).jpg",transparent = true)
+#     sleep(0.001)
+#     # if time_out[itime]>0.693
+#     #     break
+#     # end
+# end
+# cd("./figs/")
+# run(`ffmpeg -i motionframe%03d.jpg -vcodec libx264 -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" -r 24 -y -an -pix_fmt yuv420p airfoilmotion.mp4`)
+# run(`ffmpeg -ss 0 -t 26 -i airfoilmotion.mp4 \
+#     -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" \
+#     -loop 0 airfoilmotion.gif`)
+# cd("../")
+
+# Now Create the output definition, keep in mind it is cumulative
+
+theta_deg_out = diff(theta_deg_out)
+edge_offset_out = diff(edge_offset_out)
+flap_offset_out = diff(flap_offset_out)
 
 println("    mesh_motion:
     - name: arbitrary_motion_airfoil
