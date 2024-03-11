@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH -A CFD162
-#SBATCH -J Val1
+#SBATCH -J val1
 #SBATCH -t 2:00:00
 #SBATCH -p batch
 #SBATCH -N 32
@@ -43,7 +43,7 @@ spack load nalu-wind
 #sed -i "s/restart_time: [0-9.]\+/restart_time: ${mytimestamp}/" airfoil_osc_overset_periodic.yaml
 
 
-srun -u -N32 -n256 --ntasks-per-gpu=1 --gpu-bind=closest naluX -i Validation_AOA10_Variation10_Freq.yaml -o validation_1.out
+srun -u -N32 -n256 --ntasks-per-gpu=1 --gpu-bind=closest naluX -i Validation_AOA10_Variation10_Freq.yaml -o val1.out
 
 # grids=../ffa_w3_360/static/
 # echo ${grids}
