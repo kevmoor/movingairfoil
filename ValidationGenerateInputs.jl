@@ -8,8 +8,8 @@ rho = 1.225
 mu = 1.7894e-5
 M = 0.3
 v_sound = 343.0 #m/s
-U = M * v_sound
-c = Re * mu / (rho * U)
+U = 15.0#M * v_sound
+c = 1.0#Re * mu / (rho * U)
 w = k*2*U/c
 # alpha_BV[i+1] = a_mean+a_amp*sin(w*t)
 
@@ -19,7 +19,7 @@ windspeed = U#15.0 #m/s
 NchordFlow = 4.0
 steady_state_time = 1/windspeed * NchordFlow/chord_length# sec, at 15m/s for a 1m chord, 1 chords is .67 seconds
 # Potentially repeating/array of numbers
-sin_duration = 1.4 # sec, for 15m/s and 1m chord, then 1/15 = 0.067 seconds per chord, and if (below) we are doing 20 chords in a full cycle, if we did 5 cycles, then that's 100 chords of flow, or 6.7 seconds, so just say 10 seconds to match up with the sim steps?
+sin_duration = 13.1 # sec, for 15m/s and 1m chord, then 1/15 = 0.067 seconds per chord, and if (below) we are doing 20 chords in a full cycle, if we did 5 cycles, then that's 100 chords of flow, or 6.7 seconds, so just say 10 seconds to match up with the sim steps?
 N_sin_points = 100
 frequency_rot = w/(2*pi)#0.75 #hz -> 1 hz means we go from 0 to amplitude to negative amplitude to zero in one second.  for 15m/s and 1m chord, if we want 5 chords of flow when it hits the high side (1/4 stroke), then 1/15 = 0.067 seconds per chord, multiply by 5 = 0.33 seconds, so want full cycle in 4x that time, so 1 cycle in 1.33 seconds, 1/1.33 = 0.75 cycles/second
 frequency_edge = 0.75 #hz
