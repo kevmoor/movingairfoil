@@ -2,7 +2,7 @@ import PyPlot
 PyPlot.pygui(true)
 import FLOWMath
 
-k = 0.048 # k = omega*c/(2*U)
+k = 0.075 # k = omega*c/(2*U)
 Re = 3.8e6 # Re = rho * l * V / mu
 rho = 1.225
 mu = 1.7894e-5
@@ -24,10 +24,10 @@ N_sin_points = 100
 frequency_rot = w/(2*pi)#0.75 #hz -> 1 hz means we go from 0 to amplitude to negative amplitude to zero in one second.  for 15m/s and 1m chord, if we want 5 chords of flow when it hits the high side (1/4 stroke), then 1/15 = 0.067 seconds per chord, multiply by 5 = 0.33 seconds, so want full cycle in 4x that time, so 1 cycle in 1.33 seconds, 1/1.33 = 0.75 cycles/second
 frequency_edge = 0.75 #hz
 frequency_flap = 0.75 #hz
-rot_amp_deg = 10.0 # deg
+rot_amp_deg = 8.2 # deg
 edge_amp_m = 0.0 # m
 flap_amp_m = 0.0 # m
-N_sample_out = 50
+N_sample_out = 131
 
 # Get to steady state
 N_steady_state = 10
@@ -100,9 +100,9 @@ PyPlot.legend()
 #     # end
 # end
 # cd("./figs/")
-# run(`ffmpeg -i motionframe%03d.jpg -vcodec libx264 -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" -r 24 -y -an -pix_fmt yuv420p airfoilmotion.mp4`)
-# run(`ffmpeg -ss 0 -t 26 -i airfoilmotion.mp4 \
-#     -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" \
+# run(`ffmpeg -i motionframe%03d.jpg -vcodec libx264 -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" -r 60 -y -an -pix_fmt yuv420p airfoilmotion.mp4`)
+# run(`ffmpeg -ss 0 -t 30.0 -i airfoilmotion.mp4 \
+#     -vf "fps=30,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" \
 #     -loop 0 airfoilmotion.gif`)
 # cd("../")
 
