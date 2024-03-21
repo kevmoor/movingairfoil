@@ -1,0 +1,11 @@
+Data and scripts for generating the NACA0012 pitching case.
+
+Run "./wiggle" to generate the pitching section of the input file and combine with the top and bottom portions.  The result will be a.yaml.
+
+To generate the mesh:
+Within the mesh directory, run "./makebrick" to generate the outer cartesian portion of the grid.
+Then run "./runpw" to generate the inner ogrid portion with pointwise, and join it to the cartesian portion.
+
+To run the case, submit the "run" script using slurm.
+
+The "flowconditions.py" script does some arithmetic to help set up the case.

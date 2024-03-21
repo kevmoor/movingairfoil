@@ -1,0 +1,31 @@
+reset
+undo on
+
+# Domain size
+brick x 9.0 y 9.0 z 0.45
+
+move volume 1 z 0.225
+
+# For luck
+merge   all
+imprint all
+merge   all
+
+# Assign blocks and sidesets
+block   1 volume  1
+sideset 1 surface 1
+sideset 2 surface 2 
+sideset 3 surface 3 
+sideset 4 surface 4 
+sideset 5 surface 5 
+sideset 6 surface 6 
+
+set large exodus file on
+
+volume 1 size 0.045
+mesh volume 1
+
+export genesis "trial.exo" block 1 overwrite
+
+
+

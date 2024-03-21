@@ -1,0 +1,5 @@
+python wiggle.py > mid.yaml
+cat top.yaml > a.yaml
+cat mid.yaml >> a.yaml
+cat bot.yaml >> a.yaml
+

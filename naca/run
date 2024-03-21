@@ -1,0 +1,18 @@
+#!/bin/bash 
+
+#SBATCH -A FY190020
+#SBATCH -t 03:59:00
+#SBATCH -p short,batch
+#SBATCH -o machine.out
+#SBATCH -J trial
+#SBATCH -N 1
+
+source attaway_setup_env.sh
+
+nodes=$SLURM_JOB_NUM_NODES
+rpn=$(ranks_per_node)
+ranks=$(( $rpn*$nodes ))
+
+srun -N $nodes -n $ranks naluX -i a.yaml &> log
+
+

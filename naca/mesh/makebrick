@@ -1,0 +1,6 @@
+module load sierra
+module load seacas
+cubit -nojournal -nographics -batch a.jou > cubit.log
+grepos trial.exo trial2.exo < squish.grp
+
+

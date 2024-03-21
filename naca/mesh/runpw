@@ -1,0 +1,6 @@
+module load pointwise
+pointwise -b a.glf > pw.log
+
+module load sierra
+grepos bla.exo bla2.exo < scale.grp
+ejoin -output nacagrid.exo trial2.exo bla2.exo

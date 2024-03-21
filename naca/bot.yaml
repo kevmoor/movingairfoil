@@ -1,0 +1,62 @@
+
+  #post_processing:
+  #- frequency: 1
+  #  output_file_name: results/pitchingAF_forces_test9.dat
+  #  parameters:
+  #  - 0
+  #  - 0
+  #  physics: surface_force_and_moment
+  #  target_name:
+  #  - airfoil
+  #  type: surface
+ 
+  #restart:
+  #  restart_data_base_name: restart/pitchingAF_test9.rst
+  #  restart_frequency: 100
+
+  solution_options:
+    name: myOptions
+    options:
+    - hybrid_factor:
+        specific_dissipation_rate: 1.0
+        turbulent_ke: 1.0
+        velocity: 1.0
+    - alpha_upw:
+        specific_dissipation_rate: 1.0
+        turbulent_ke: 1.0
+        velocity: 1.0
+    - upw_factor:
+        specific_dissipation_rate: 0.0
+        turbulent_ke: 0.0
+        velocity: 1.0
+    - limiter:
+        pressure: true
+        velocity: true
+        turbulent_ke: true
+        specific_dissipation_rate: true
+    - noc_correction:
+        pressure: true
+    - projected_nodal_gradient:
+        ndtw: element
+        pressure: element
+        specific_dissipation_rate: element
+        turbulent_ke: element
+        velocity: element
+    - relaxation_factor:
+        pressure: 0.3
+        specific_dissipation_rate: 0.7
+        turbulent_ke: 0.7
+        velocity: 0.7
+    - turbulence_model_constants:
+        SDRWallFactor: 0.625
+    projected_timescale_type: momentum_diag_inv
+    turbulence_model: sst
+  turbulence_averaging:
+    specifications:
+    - compute_q_criterion: true
+      compute_vorticity: true
+      name: one
+      target_name: [block_1, airfoil-HEX]
+    time_filter_interval: 100000.0
+  use_edges: true
+
