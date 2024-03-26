@@ -18,7 +18,7 @@ Time_Integrators:
     second_order_accuracy: true
     start_time: 0
     termination_step_count: 50000
-    time_step: 0.000001
+    time_step: 0.00001
     time_step_count: 0
     time_stepping_type: fixed
 
@@ -235,7 +235,7 @@ realms:
   - mesh_parts:
     - airfoil-HEX
     motion:
-    - angle: -2.1
+    - angle: -10.3
       axis:
       - 0.0
       - 0.0
