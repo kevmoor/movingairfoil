@@ -1,7 +1,7 @@
 #!/bin/bash
 
 current_time=$(date +%s)
-interval=$((2 * 3600)) # 2 hours in sec
+interval=$((3 * 3600)) # 2 hours in sec
 
 current_time_formatted=$(date -d @$current_time "+%Y-%m-%dT%H:%M:%S")
 echo "Current time: $current_time_formatted"
