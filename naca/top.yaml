@@ -29,8 +29,8 @@ linear_solvers:
     method: hypre_gmres
     preconditioner: boomerAMG
     tolerance: 1e-5
-    max_iterations: 2
-    kspace: 10
+    max_iterations: 1000
+    kspace: 1000
     sync_alg: 1
     output_level: 0
     write_matrix_files: no
@@ -49,8 +49,8 @@ linear_solvers:
     method: hypre_gmres
     preconditioner: boomerAMG
     tolerance: 1e-5
-    max_iterations: 2
-    kspace: 10
+    max_iterations: 1000
+    kspace: 1000
     sync_alg: 1
     output_level: 0
     write_matrix_files: no
@@ -68,8 +68,8 @@ linear_solvers:
     method: hypre_gmres
     preconditioner: boomerAMG
     tolerance: 1e-5
-    max_iterations: 2
-    kspace: 10
+    max_iterations: 1000
+    kspace: 1000
     sync_alg: 1
     output_level: 0
     write_matrix_files: no
@@ -132,13 +132,13 @@ realms:
     target_name: [surface_1, surface_2]
     #check_for_missing_bcs: true
     periodic_user_data:
-      search_tolerance: 0.00000001
+      search_tolerance: 0.0001
 
   - periodic_boundary_condition: bc_front_back_af
     target_name: [side1, side2]
     #check_for_missing_bcs: true
     periodic_user_data:
-      search_tolerance: 0.00000001
+      search_tolerance: 0.0001
 
   - overset_boundary_condition: bc_overset
     overset_connectivity_type: tioga
