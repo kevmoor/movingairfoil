@@ -17,7 +17,7 @@ Time_Integrators:
     - realm_1
     second_order_accuracy: true
     start_time: 0
-    termination_step_count: 50000
+    termination_step_count: 1000000
     time_step: 0.00001
     time_step_count: 0
     time_stepping_type: fixed
@@ -29,7 +29,7 @@ linear_solvers:
     method: hypre_gmres
     preconditioner: boomerAMG
     tolerance: 1e-5
-    max_iterations: 1000
+    max_iterations: 1000 
     kspace: 1000
     sync_alg: 1
     output_level: 0
@@ -132,13 +132,13 @@ realms:
     target_name: [surface_1, surface_2]
     #check_for_missing_bcs: true
     periodic_user_data:
-      search_tolerance: 0.0001
+      search_tolerance: 0.00000001
 
   - periodic_boundary_condition: bc_front_back_af
     target_name: [side1, side2]
     #check_for_missing_bcs: true
     periodic_user_data:
-      search_tolerance: 0.0001
+      search_tolerance: 0.00000001
 
   - overset_boundary_condition: bc_overset
     overset_connectivity_type: tioga
@@ -206,7 +206,7 @@ realms:
   mesh: mesh/nacagrid.exo
   name: realm_1
   output:
-    output_data_base_name: results/pitchingAF_field_test1.e
+    output_data_base_name: results/pitchingAF_field_test103.e
     output_frequency: 10
     output_node_set: false
     output_variables:
@@ -235,7 +235,7 @@ realms:
   - mesh_parts:
     - airfoil-HEX
     motion:
-    - angle: -10.3
+    - angle: -18.5
       axis:
       - 0.0
       - 0.0
