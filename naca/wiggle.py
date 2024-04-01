@@ -1,10 +1,10 @@
 import numpy as np
 
-timestep    = 0.5
+timestep    = 0.0005
 steadysteps = 200
 wiggleper   = 0.146
 wiggleamp   = 8.2 * np.pi/180
-totalsteps  = 20
+totalsteps  = 20000
 
 wigglefreq = 2*np.pi/wiggleper
 steadytime = steadysteps * timestep
