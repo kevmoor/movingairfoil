@@ -1,10 +1,10 @@
 import numpy as np
 
-timestep    = 0.0005
+timestep    = 0.5
 steadysteps = 200
 wiggleper   = 0.146
 wiggleamp   = 8.2 * np.pi/180
-totalsteps  = 20000
+totalsteps  = 20
 
 wigglefreq = 2*np.pi/wiggleper
 steadytime = steadysteps * timestep
@@ -24,7 +24,7 @@ print("    motion:")
 currenttime = steadytime
 previousangle = wiggleamp
 for i in range(0,totalsteps):
-  currentangle = wiggleamp * np.cos(wigglefreq*(currenttime-steadytime))
+  currentangle = -wiggleamp * np.cos(wigglefreq*(currenttime-steadytime))
   deltaangle = currentangle - previousangle
   currentomega = wiggleamp * wigglefreq * np.sin(wigglefreq*(currenttime-steadytime))
   print("    - type:       rotation")

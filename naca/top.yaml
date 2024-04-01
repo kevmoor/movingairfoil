@@ -207,7 +207,7 @@ realms:
   name: realm_1
   output:
     output_data_base_name: results/pitchingAF_field_test103.e
-    output_frequency: 10
+    output_frequency: 100
     output_node_set: false
     output_variables:
     - mesh_displacement
@@ -235,7 +235,7 @@ realms:
   - mesh_parts:
     - airfoil-HEX
     motion:
-    - angle: -18.5
+    - angle: -2.1
       axis:
       - 0.0
       - 0.0
